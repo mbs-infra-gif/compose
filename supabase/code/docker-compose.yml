@@ -13,6 +13,7 @@ name: supabase
 services:
 
   studio:
+  container_name: supabase_supabase_studio
     image: supabase/studio:2026.04.27-sha-5f60601
     restart: unless-stopped
     healthcheck:
@@ -75,6 +76,7 @@ services:
       - ./volumes/functions:/app/edge-functions:Z
 
   kong:
+   container_name: supabase_supabase_kong
     image: kong/kong:3.9.1
     restart: unless-stopped
     networks:
