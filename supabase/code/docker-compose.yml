@@ -77,8 +77,8 @@ services:
       - ./volumes/functions:/app/edge-functions:Z
 
     kong:
-    container_name: supabase_supabase_kong
-    image: kong/kong:3.9.1
+        container_name: supabase_supabase_kong
+        image: kong/kong:3.9.1
 
     restart: unless-stopped
     networks:
