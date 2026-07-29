@@ -186,8 +186,8 @@ services:
       GOTRUE_MAILER_URLPATHS_EMAIL_CHANGE: ${MAILER_URLPATHS_EMAIL_CHANGE}
       GOTRUE_MAILER_SUBJECTS_CONFIRMATION: "Confirme seu cadastro no Meu Bairro Social"
       GOTRUE_MAILER_SUBJECTS_RECOVERY: "Redefinir sua senha"
-      GOTRUE_MAILER_SUBJECTS_MAGIC_LINK: "Seu link mágico de acesso"
-      GOTRUE_MAILER_SUBJECTS_EMAIL_CHANGE: "Confirmar alteração de e-mail"
+      GOTRUE_MAILER_SUBJECTS_MAGIC_LINK: "Seu link m�gico de acesso"
+      GOTRUE_MAILER_SUBJECTS_EMAIL_CHANGE: "Confirmar altera��o de e-mail"
       GOTRUE_MAILER_TEMPLATES_CONFIRMATION: "https://meubairrosocial.com.br/email-templates/confirmation.html"
       GOTRUE_MAILER_TEMPLATES_RECOVERY: "https://meubairrosocial.com.br/email-templates/recovery.html"
       GOTRUE_MAILER_TEMPLATES_MAGIC_LINK: "https://meubairrosocial.com.br/email-templates/magic-link.html"
