@@ -13,9 +13,7 @@ name: supabase
 services:
 
   studio:
-    container_name: supabase_supabase_studio
-    image: supabase/studio:20240924-f7c8ec2
-
+    image: supabase/studio:2026.04.27-sha-5f60601
     restart: unless-stopped
     healthcheck:
       test:
@@ -76,10 +74,9 @@ services:
       - ./volumes/snippets:/app/snippets:Z
       - ./volumes/functions:/app/edge-functions:Z
 
-      kong:
+  kong:
     container_name: supabase_supabase_kong
     image: kong/kong:3.9.1
-
     restart: unless-stopped
     networks:
       default:
@@ -120,7 +117,7 @@ services:
       DASHBOARD_USERNAME: ${DASHBOARD_USERNAME}
       DASHBOARD_PASSWORD: ${DASHBOARD_PASSWORD}
     entrypoint: /home/kong/kong-entrypoint.sh
-  
+
   auth:
     image: supabase/gotrue:v2.186.0
     restart: unless-stopped
@@ -183,16 +180,15 @@ services:
       GOTRUE_MAILER_URLPATHS_INVITE: ${MAILER_URLPATHS_INVITE}
       GOTRUE_MAILER_URLPATHS_CONFIRMATION: ${MAILER_URLPATHS_CONFIRMATION}
       GOTRUE_MAILER_URLPATHS_RECOVERY: ${MAILER_URLPATHS_RECOVERY}
-      GOTRUE_MAILER_URLPATHS_EMAIL_CHANGE: ${MAILER_URLPATHS_EMAIL_CHANGE}
-      GOTRUE_MAILER_SUBJECTS_CONFIRMATION: "Confirme seu cadastro no Meu Bairro Social"
-      GOTRUE_MAILER_SUBJECTS_RECOVERY: "Redefinir sua senha"
-      GOTRUE_MAILER_SUBJECTS_MAGIC_LINK: "Seu link m�gico de acesso"
-      GOTRUE_MAILER_SUBJECTS_EMAIL_CHANGE: "Confirmar altera��o de e-mail"
-      GOTRUE_MAILER_TEMPLATES_CONFIRMATION: "https://meubairrosocial.com.br/email-templates/confirmation.html"
-      GOTRUE_MAILER_TEMPLATES_RECOVERY: "https://meubairrosocial.com.br/email-templates/recovery.html"
-      GOTRUE_MAILER_TEMPLATES_MAGIC_LINK: "https://meubairrosocial.com.br/email-templates/magic-link.html"
-      GOTRUE_MAILER_TEMPLATES_EMAIL_CHANGE: "https://meubairrosocial.com.br/email-templates/email-change.html"
-
+      GOTRUE_MAILER_URLPATHS_EMAIL_CHANGE: 
+      GOTRUE_MAILER_SUBJECTS_CONFIRMATION: 
+      GOTRUE_MAILER_SUBJECTS_RECOVERY: 
+      GOTRUE_MAILER_SUBJECTS_MAGIC_LINK: 
+      GOTRUE_MAILER_SUBJECTS_EMAIL_CHANGE: 
+      GOTRUE_MAILER_TEMPLATES_CONFIRMATION: 
+      GOTRUE_MAILER_TEMPLATES_RECOVERY: 
+      GOTRUE_MAILER_TEMPLATES_MAGIC_LINK: 
+      GOTRUE_MAILER_TEMPLATES_EMAIL_CHANGE: ${MAILER_URLPATHS_EMAIL_CHANGE}
 
       GOTRUE_EXTERNAL_PHONE_ENABLED: ${ENABLE_PHONE_SIGNUP}
       GOTRUE_SMS_AUTOCONFIRM: ${ENABLE_PHONE_AUTOCONFIRM}
