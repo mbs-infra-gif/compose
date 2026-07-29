@@ -13,8 +13,12 @@ name: supabase
 services:
 
   studio:
+    container_name: supabase_supabase_studio
     image: supabase/studio:2026.04.27-sha-5f60601
     restart: unless-stopped
+    networks:
+      default:
+      easypanel:
     healthcheck:
       test:
         [
@@ -82,6 +86,7 @@ services:
       default:
         aliases:
           - api-gw
+      easypanel:
     healthcheck:
       test: [ "CMD", "kong", "health" ]
       interval: 5s
@@ -617,3 +622,6 @@ services:
 volumes:
   db-config:
   deno-cache:
+
+  easypanel:
+    external: true
